@@ -2,7 +2,7 @@
 // Created by nirvash@wincs.cs.bgu.ac.il on 15/01/2020.
 //
 
-#include <connectionHandler.h>
+#include <ConnectionHandler.h>
 #include <boost/thread.hpp>
 #include "ServerListener.h"
 
@@ -28,16 +28,20 @@
     }
 }*/
 
-ServerListener::ServerListener(ConnectionHandler* ch, MessagingProtocol* _protocol){
-    handler = ch;
+ServerListener::ServerListener(UserDatabase* _user, ConnectionHandler& _handler, MessagingProtocol* _protocol): handler(_handler){
+    user = _user;
     isTerminated = false;
     protocol = _protocol;
 }
 
 void ServerListener::operator()() {
     while(!isTerminated) {
-        string answer;
-        handler->getFrameAscii(answer, '\0');
-        protocol->process(answer);
+        string answer = "";
+        cout<< "Got a message" <<endl;
+        handler.getLine(answer);
+        cout<<"dsa"<<endl;
+        cout<< answer + "sd" << endl;
+        StompFrame* frame = new StompFrame(answer);
+        protocol->process(frame);
     }
 }

@@ -123,6 +123,33 @@ Boost_Echo_Client/fast:
 	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/build
 .PHONY : Boost_Echo_Client/fast
 
+src/ConnectionHandler.o: src/ConnectionHandler.cpp.o
+
+.PHONY : src/ConnectionHandler.o
+
+# target to build an object file
+src/ConnectionHandler.cpp.o:
+	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/ConnectionHandler.cpp.o
+.PHONY : src/ConnectionHandler.cpp.o
+
+src/ConnectionHandler.i: src/ConnectionHandler.cpp.i
+
+.PHONY : src/ConnectionHandler.i
+
+# target to preprocess a source file
+src/ConnectionHandler.cpp.i:
+	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/ConnectionHandler.cpp.i
+.PHONY : src/ConnectionHandler.cpp.i
+
+src/ConnectionHandler.s: src/ConnectionHandler.cpp.s
+
+.PHONY : src/ConnectionHandler.s
+
+# target to generate assembly for a file
+src/ConnectionHandler.cpp.s:
+	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/ConnectionHandler.cpp.s
+.PHONY : src/ConnectionHandler.cpp.s
+
 src/IOListener.o: src/IOListener.cpp.o
 
 .PHONY : src/IOListener.o
@@ -204,33 +231,6 @@ src/ServerListener.cpp.s:
 	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/ServerListener.cpp.s
 .PHONY : src/ServerListener.cpp.s
 
-src/StompClient.o: src/StompClient.cpp.o
-
-.PHONY : src/StompClient.o
-
-# target to build an object file
-src/StompClient.cpp.o:
-	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/StompClient.cpp.o
-.PHONY : src/StompClient.cpp.o
-
-src/StompClient.i: src/StompClient.cpp.i
-
-.PHONY : src/StompClient.i
-
-# target to preprocess a source file
-src/StompClient.cpp.i:
-	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/StompClient.cpp.i
-.PHONY : src/StompClient.cpp.i
-
-src/StompClient.s: src/StompClient.cpp.s
-
-.PHONY : src/StompClient.s
-
-# target to generate assembly for a file
-src/StompClient.cpp.s:
-	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/StompClient.cpp.s
-.PHONY : src/StompClient.cpp.s
-
 src/StompFrame.o: src/StompFrame.cpp.o
 
 .PHONY : src/StompFrame.o
@@ -258,6 +258,33 @@ src/StompFrame.cpp.s:
 	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/StompFrame.cpp.s
 .PHONY : src/StompFrame.cpp.s
 
+src/StompTranslator.o: src/StompTranslator.cpp.o
+
+.PHONY : src/StompTranslator.o
+
+# target to build an object file
+src/StompTranslator.cpp.o:
+	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/StompTranslator.cpp.o
+.PHONY : src/StompTranslator.cpp.o
+
+src/StompTranslator.i: src/StompTranslator.cpp.i
+
+.PHONY : src/StompTranslator.i
+
+# target to preprocess a source file
+src/StompTranslator.cpp.i:
+	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/StompTranslator.cpp.i
+.PHONY : src/StompTranslator.cpp.i
+
+src/StompTranslator.s: src/StompTranslator.cpp.s
+
+.PHONY : src/StompTranslator.s
+
+# target to generate assembly for a file
+src/StompTranslator.cpp.s:
+	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/StompTranslator.cpp.s
+.PHONY : src/StompTranslator.cpp.s
+
 src/UserDatabase.o: src/UserDatabase.cpp.o
 
 .PHONY : src/UserDatabase.o
@@ -284,33 +311,6 @@ src/UserDatabase.s: src/UserDatabase.cpp.s
 src/UserDatabase.cpp.s:
 	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/UserDatabase.cpp.s
 .PHONY : src/UserDatabase.cpp.s
-
-src/connectionHandler.o: src/connectionHandler.cpp.o
-
-.PHONY : src/connectionHandler.o
-
-# target to build an object file
-src/connectionHandler.cpp.o:
-	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.o
-.PHONY : src/connectionHandler.cpp.o
-
-src/connectionHandler.i: src/connectionHandler.cpp.i
-
-.PHONY : src/connectionHandler.i
-
-# target to preprocess a source file
-src/connectionHandler.cpp.i:
-	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.i
-.PHONY : src/connectionHandler.cpp.i
-
-src/connectionHandler.s: src/connectionHandler.cpp.s
-
-.PHONY : src/connectionHandler.s
-
-# target to generate assembly for a file
-src/connectionHandler.cpp.s:
-	$(MAKE) -f CMakeFiles/Boost_Echo_Client.dir/build.make CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.s
-.PHONY : src/connectionHandler.cpp.s
 
 src/echoClient.o: src/echoClient.cpp.o
 
@@ -375,6 +375,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... Boost_Echo_Client"
 	@echo "... edit_cache"
+	@echo "... src/ConnectionHandler.o"
+	@echo "... src/ConnectionHandler.i"
+	@echo "... src/ConnectionHandler.s"
 	@echo "... src/IOListener.o"
 	@echo "... src/IOListener.i"
 	@echo "... src/IOListener.s"
@@ -384,18 +387,15 @@ help:
 	@echo "... src/ServerListener.o"
 	@echo "... src/ServerListener.i"
 	@echo "... src/ServerListener.s"
-	@echo "... src/StompClient.o"
-	@echo "... src/StompClient.i"
-	@echo "... src/StompClient.s"
 	@echo "... src/StompFrame.o"
 	@echo "... src/StompFrame.i"
 	@echo "... src/StompFrame.s"
+	@echo "... src/StompTranslator.o"
+	@echo "... src/StompTranslator.i"
+	@echo "... src/StompTranslator.s"
 	@echo "... src/UserDatabase.o"
 	@echo "... src/UserDatabase.i"
 	@echo "... src/UserDatabase.s"
-	@echo "... src/connectionHandler.o"
-	@echo "... src/connectionHandler.i"
-	@echo "... src/connectionHandler.s"
 	@echo "... src/echoClient.o"
 	@echo "... src/echoClient.i"
 	@echo "... src/echoClient.s"

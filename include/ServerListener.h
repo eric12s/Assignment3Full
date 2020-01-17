@@ -8,6 +8,7 @@
 #include <StompFrame.h>
 #include <boost/thread.hpp>
 #include "MessagingProtocol.h"
+#include <queue>
 
 using namespace std;
 
@@ -15,18 +16,19 @@ class ServerListener {
 public:
 
     //ServerListener(boost::function<void(StompFrame)>, ConnectionHandler* handler);
-    ServerListener(ConnectionHandler* handler, MessagingProtocol* _protocol);
+    ServerListener(UserDatabase* user, ConnectionHandler& _handler, MessagingProtocol* _protocol);
     void startListen();
     bool isTerminated;
     void operator()();
 
 
 private:
-    function<void(string)> callback;
-    ConnectionHandler* handler;
+    //function<void(string)> callback;
+    UserDatabase* user;
+    ConnectionHandler& handler;
     MessagingProtocol* protocol;
+    queue<StompFrame> sendQueue;
     //boost::thread t1;
-
 };
 
 

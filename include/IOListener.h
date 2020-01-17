@@ -6,7 +6,7 @@
 #define BOOST_ECHO_CLIENT_IOLISTENER_H
 
 
-#include "connectionHandler.h"
+#include "ConnectionHandler.h"
 #include "StompFrame.h"
 #include "UserDatabase.h"
 #include "MessagingProtocol.h"

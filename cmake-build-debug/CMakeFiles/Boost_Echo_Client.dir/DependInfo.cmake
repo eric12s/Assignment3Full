@@ -4,13 +4,13 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ConnectionHandler.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/ConnectionHandler.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/IOListener.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/IOListener.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/MessagingProtocol.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ServerListener.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/ServerListener.cpp.o"
-  "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/StompClient.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/StompClient.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/StompFrame.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/StompFrame.cpp.o"
+  "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/StompTranslator.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/StompTranslator.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/UserDatabase.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/UserDatabase.cpp.o"
-  "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/connectionHandler.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/connectionHandler.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/echoClient.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/echoClient.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/encoderDecoder.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/encoderDecoder.cpp.o"
   )

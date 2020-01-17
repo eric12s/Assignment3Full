@@ -1,12 +1,12 @@
 #include <stdlib.h>
-#include <connectionHandler.h>
+#include <ConnectionHandler.h>
 #include <thread>
 #include <IOListener.h>
 #include <iostream>
 #include <mutex>
 #include <ServerListener.h>
 #include <boost/lexical_cast.hpp>
-#include <StompClient.h>
+#include <StompTranslator.h>
 
 /**
 * This code assumes that the server replies the exact text the client sent it (as opposed to the practical session example)
@@ -79,7 +79,7 @@ int main (int argc, char *argv[]) {
         getline(iss, password, ' ');
         UserDatabase *user = new UserDatabase(name);
         user->connect();
-        StompClient *stompClient = new StompClient();
+        StompTranslator *stompClient = new StompTranslator();
 
         StompFrame *frame = new StompFrame(stompClient->login(name, password));
         connectionHandler.sendFrameAscii(frame->toString(), '\0');
@@ -89,12 +89,14 @@ int main (int argc, char *argv[]) {
         MessagingProtocol *protocol = new MessagingProtocol(connectionHandler);
 
         IOListener iOListener(connectionHandler, user, protocol);
-        ServerListener serverListener(&connectionHandler, protocol);
+        ServerListener serverListener(user, connectionHandler, protocol);
         std::thread th1(std::ref(iOListener));
         std::thread th2(std::ref(serverListener));
 
         th1.join();
         th2.join();
+
+        cout<<"Theards are done"<<endl;
 
         connectionHandler.close();
         string line;

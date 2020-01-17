@@ -86,6 +86,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/ConnectionHandler.h">
+			<Option target="Boost_Echo_Client"/>
+		</Unit>
 		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/IOListener.h">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
@@ -95,19 +98,19 @@
 		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/ServerListener.h">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/StompClient.h">
+		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/StompFrame.h">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/StompFrame.h">
+		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/StompTranslator.h">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/UserDatabase.h">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/connectionHandler.h">
+		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/encoderDecoder.h">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/include/encoderDecoder.h">
+		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ConnectionHandler.cpp">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/IOListener.cpp">
@@ -119,16 +122,13 @@
 		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ServerListener.cpp">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/StompClient.cpp">
-			<Option target="Boost_Echo_Client"/>
-		</Unit>
 		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/StompFrame.cpp">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/UserDatabase.cpp">
+		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/StompTranslator.cpp">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
-		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/connectionHandler.cpp">
+		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/UserDatabase.cpp">
 			<Option target="Boost_Echo_Client"/>
 		</Unit>
 		<Unit filename="/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/echoClient.cpp">

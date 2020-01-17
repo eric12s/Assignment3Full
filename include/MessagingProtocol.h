@@ -7,7 +7,7 @@
 
 #include "UserDatabase.h"
 #include "StompFrame.h"
-#include "connectionHandler.h"
+#include "ConnectionHandler.h"
 
 class ServerListener;
 class MessagingProtocol {
@@ -19,7 +19,7 @@ private:
 public:
     MessagingProtocol(ConnectionHandler& _connectionHandler);
     void setUserDatabase(UserDatabase * _userDatabase);
-    void process(StompFrame stompFrame);
+    void process(StompFrame *stompFrame);
 };
 
 

@@ -6,9 +6,17 @@
 
 #IncludeRegexTransform: 
 
+../include/ConnectionHandler.h
+string
+-
+iostream
+-
+boost/asio.hpp
+-
+
 ../include/IOListener.h
-connectionHandler.h
-../include/connectionHandler.h
+ConnectionHandler.h
+../include/ConnectionHandler.h
 StompFrame.h
 ../include/StompFrame.h
 UserDatabase.h
@@ -21,8 +29,8 @@ UserDatabase.h
 ../include/UserDatabase.h
 StompFrame.h
 ../include/StompFrame.h
-connectionHandler.h
-../include/connectionHandler.h
+ConnectionHandler.h
+../include/ConnectionHandler.h
 
 ../include/ServerListener.h
 StompFrame.h
@@ -31,17 +39,19 @@ boost/thread.hpp
 -
 MessagingProtocol.h
 ../include/MessagingProtocol.h
-
-../include/StompClient.h
-string
--
-iostream
+queue
 -
 
 ../include/StompFrame.h
 string
 -
 unordered_map
+-
+
+../include/StompTranslator.h
+string
+-
+iostream
 -
 
 ../include/UserDatabase.h
@@ -52,23 +62,23 @@ unordered_map
 vector
 -
 
-../include/connectionHandler.h
-string
+/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/echoClient.cpp
+stdlib.h
 -
-iostream
--
-boost/asio.hpp
--
-
-/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/IOListener.cpp
-IOListener.h
-/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/IOListener.h
-ServerListener.h
-/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ServerListener.h
-boost/thread.hpp
+ConnectionHandler.h
 -
 thread
 -
-StompClient.h
+IOListener.h
+-
+iostream
+-
+mutex
+-
+ServerListener.h
+-
+boost/lexical_cast.hpp
+-
+StompTranslator.h
 -
 

@@ -8,6 +8,6 @@ link_libraries("-lboost_system")
 include_directories(include)
 
 add_executable(Boost_Echo_Client
-        include/connectionHandler.h
-        src/connectionHandler.cpp
-        src/echoClient.cpp src/StompFrame.cpp include/StompFrame.h src/encoderDecoder.cpp include/encoderDecoder.h src/UserDatabase.cpp include/UserDatabase.h src/IOListener.cpp include/IOListener.h src/MessagingProtocol.cpp include/MessagingProtocol.h src/ServerListener.cpp include/ServerListener.h src/StompClient.cpp include/StompClient.h)
+        include/ConnectionHandler.h
+        src/ConnectionHandler.cpp
+        src/echoClient.cpp src/StompFrame.cpp include/StompFrame.h src/encoderDecoder.cpp include/encoderDecoder.h src/UserDatabase.cpp include/UserDatabase.h src/IOListener.cpp include/IOListener.h src/MessagingProtocol.cpp include/MessagingProtocol.h src/ServerListener.cpp include/ServerListener.h src/StompTranslator.cpp include/StompTranslator.h)

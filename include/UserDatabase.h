@@ -38,6 +38,7 @@ public:
     bool connectAnswer();
     void setConnectAnswer(bool answer);
     string getActionByReceipt(string rId);
+    void setActionForReceipt(int receiptId, string action);
     bool checkBook(string topic, string bookName);
     void add(string topic, string bookName);
     void setName(string _userName);

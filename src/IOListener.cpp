@@ -6,13 +6,13 @@
 #include "ServerListener.h"
 #include <boost/thread.hpp>
 #include <thread>
-#include <StompClient.h>
+#include <StompTranslator.h>
 
 using namespace std;
 
-void IOListener::gotMessage(StompFrame frame) {
-    protocol->process(frame);
-};
+/*void IOListener::gotMessage(StompFrame *frame) {
+    protocol->process(*frame);
+};*/
 
 
 IOListener::IOListener(ConnectionHandler &_connectionHandler, UserDatabase *_user, MessagingProtocol *_protocol) :
@@ -30,7 +30,7 @@ void IOListener::operator()() {
         istringstream iss(line);
         string command;
         getline(iss, command, ' ');
-        StompClient *stompClient = new StompClient;
+        StompTranslator *stompClient = new StompTranslator;
 
         if (command == "login") {
             string host;
@@ -57,13 +57,14 @@ void IOListener::operator()() {
         }*/
 
     while (user->isConnected()) {
+        cout<<"IOListener is working"<<endl;
         string line;
         string command;
         getline(cin, line);
         istringstream iss(line);
         getline(iss, command, ' ');
         StompFrame *frame;
-        StompClient *stompClient = new StompClient;
+        StompTranslator *stompClient = new StompTranslator;
         if (command == "login") {
             if (!user->isConnected()) {
                 string host;
@@ -84,12 +85,14 @@ void IOListener::operator()() {
             string genre;
             getline(iss, genre, ' ');
             frame = new StompFrame(stompClient->join(genre, to_string(id), to_string(receiptId)));
+            user->setActionForReceipt(receiptId, "Joined club " + genre);
             id++;
             receiptId++;
         } else if (command == "exit") {
             string genre;
             getline(iss, genre, ' ');
             frame = new StompFrame(stompClient->exit(genre, to_string(id), to_string(receiptId)));
+            user->setActionForReceipt(receiptId, "Joined club " + genre);
             id++;
             receiptId++;
         } else if (command == "add") {
@@ -116,6 +119,7 @@ void IOListener::operator()() {
             frame = new StompFrame(stompClient->status(genre));
         } else if (command == "logout") {
             frame = new StompFrame(stompClient->logout(to_string(receiptId)));
+            user->setActionForReceipt(receiptId, "Disconnect");
             receiptId++;
             user->disconnect();
         }

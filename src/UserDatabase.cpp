@@ -35,6 +35,11 @@ void UserDatabase:: setConnectAnswer(bool answer){
 string UserDatabase:: getActionByReceipt(string rId){
     return receiptAndActions[rId];
 }
+
+void UserDatabase:: setActionForReceipt(int receiptId, string action){
+    receiptAndActions.insert(make_pair(to_string(receiptId), action));
+}
+
 bool UserDatabase:: checkBook(string topic, string bookName){
     bool temp = false;
     for (string s : topicsAndBooks[topic]){

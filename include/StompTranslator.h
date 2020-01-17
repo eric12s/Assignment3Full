@@ -2,15 +2,15 @@
 // Created by nirvash@wincs.cs.bgu.ac.il on 15/01/2020.
 //
 
-#ifndef BOOST_ECHO_CLIENT_STOMPCLIENT_H
-#define BOOST_ECHO_CLIENT_STOMPCLIENT_H
+#ifndef BOOST_ECHO_CLIENT_STOMPTRANSLATOR_H
+#define BOOST_ECHO_CLIENT_STOMPTRANSLATOR_H
 
 #include <string>
 #include <iostream>
 
 using std::string;
 
-class StompClient {
+class StompTranslator {
 public:
 string login(string userName, string passcode);
 string join(string genre,string id, string receipt);
@@ -23,4 +23,4 @@ string logout(string receipt);
 };
 
 
-#endif //BOOST_ECHO_CLIENT_STOMPCLIENT_H
+#endif //BOOST_ECHO_CLIENT_STOMPTRANSLATOR_H
