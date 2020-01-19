@@ -18,13 +18,13 @@ private:
     UserDatabase *user;
     int id;
     int receiptId;
-    MessagingProtocol *protocol;
+
 
 public:
-    IOListener(ConnectionHandler &_connectionHandler, UserDatabase* _user, MessagingProtocol* _protocol);
+    IOListener(ConnectionHandler &_connectionHandler, UserDatabase* _user);
     void operator()();
-    string translateInput(string input);
-    void gotMessage(StompFrame frame);
+    //string translateInput(string input);
+    void gotMessage(StompFrame *frame);
 };
 
 

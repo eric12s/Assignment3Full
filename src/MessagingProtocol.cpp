@@ -6,8 +6,8 @@
 
 
 MessagingProtocol:: MessagingProtocol(ConnectionHandler& _connectionHandler): connectionHandler(_connectionHandler), userDatabase(
-        nullptr){}
-
+        nullptr), ioListener(nullptr){
+}
 
 void MessagingProtocol:: setUserDatabase (UserDatabase * _userDatabase){
     userDatabase = _userDatabase;
@@ -69,7 +69,8 @@ void MessagingProtocol:: process(StompFrame *stompFrame) {
                 addBook.addHeader(*p);
                 addBook.setBody(userDatabase->getName() + "has " + book);
                 string output = addBook.toString();
-                connectionHandler.sendFrameAscii(output, '\0');
+                //connectionHandler.sendFrameAscii(output, '\0');
+                ioListener->gotMessage(&addBook);
             }
          }
 
@@ -123,4 +124,8 @@ void MessagingProtocol:: process(StompFrame *stompFrame) {
             }
         }
     }
+}
+
+void MessagingProtocol::setIOListener(IOListener *_ioListener) {
+    ioListener = _ioListener;
 }

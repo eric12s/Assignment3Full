@@ -18,6 +18,16 @@ iostream
 boost/asio.hpp
 -
 
+../include/IOListener.h
+ConnectionHandler.h
+../include/ConnectionHandler.h
+StompFrame.h
+../include/StompFrame.h
+UserDatabase.h
+../include/UserDatabase.h
+MessagingProtocol.h
+../include/MessagingProtocol.h
+
 ../include/MessagingProtocol.h
 UserDatabase.h
 ../include/UserDatabase.h
@@ -25,6 +35,8 @@ StompFrame.h
 ../include/StompFrame.h
 ConnectionHandler.h
 ../include/ConnectionHandler.h
+IOListener.h
+../include/IOListener.h
 
 ../include/ServerListener.h
 StompFrame.h
@@ -42,6 +54,12 @@ string
 unordered_map
 -
 
+../include/StompTranslator.h
+string
+-
+iostream
+-
+
 ../include/UserDatabase.h
 string
 -
@@ -52,11 +70,23 @@ vector
 Book.h
 ../include/Book.h
 
-/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ServerListener.cpp
+/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/echoClient.cpp
+stdlib.h
+-
 ConnectionHandler.h
 -
-boost/thread.hpp
+thread
+-
+IOListener.h
+-
+iostream
+-
+mutex
 -
 ServerListener.h
-/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ServerListener.h
+-
+boost/lexical_cast.hpp
+-
+StompTranslator.h
+-
 

@@ -10,14 +10,13 @@
 
 using namespace std;
 
-/*void IOListener::gotMessage(StompFrame *frame) {
-    protocol->process(*frame);
-};*/
+void IOListener::gotMessage(StompFrame *frame) {
+    connectionHandler.sendFrameAscii(frame->toString(), '\0');
+}
 
 
-IOListener::IOListener(ConnectionHandler &_connectionHandler, UserDatabase *_user, MessagingProtocol *_protocol) :
-        shouldTerminate(false), connectionHandler(_connectionHandler), user(_user), id(1), receiptId(1),
-        protocol(_protocol) {
+IOListener::IOListener(ConnectionHandler &_connectionHandler, UserDatabase *_user) :
+        shouldTerminate(false), connectionHandler(_connectionHandler), user(_user), id(1), receiptId(1){
 
     //ServerListener serverListener(&IOListener::gotMessage, &_connectionHandler);
     //std::thread th1(std::ref(serverListener));

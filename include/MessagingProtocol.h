@@ -8,18 +8,20 @@
 #include "UserDatabase.h"
 #include "StompFrame.h"
 #include "ConnectionHandler.h"
-
+#include "IOListener.h"
+class IOListener;
 class ServerListener;
 class MessagingProtocol {
 private:
     ConnectionHandler& connectionHandler;
     UserDatabase* userDatabase;
-
+    IOListener *ioListener;
 
 public:
     MessagingProtocol(ConnectionHandler& _connectionHandler);
     void setUserDatabase(UserDatabase * _userDatabase);
     void process(StompFrame *stompFrame);
+    void setIOListener(IOListener *_ioListener);
 };
 
 

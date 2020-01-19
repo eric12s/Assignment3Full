@@ -19,6 +19,7 @@ CMakeFiles/Boost_Echo_Client.dir/src/IOListener.cpp.o: ../src/IOListener.cpp
 
 CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o: ../include/Book.h
 CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o: ../include/ConnectionHandler.h
+CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o: ../include/IOListener.h
 CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o: ../include/MessagingProtocol.h
 CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o: ../include/StompFrame.h
 CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o: ../include/UserDatabase.h
@@ -26,6 +27,7 @@ CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o: ../src/MessagingPr
 
 CMakeFiles/Boost_Echo_Client.dir/src/ServerListener.cpp.o: ../include/Book.h
 CMakeFiles/Boost_Echo_Client.dir/src/ServerListener.cpp.o: ../include/ConnectionHandler.h
+CMakeFiles/Boost_Echo_Client.dir/src/ServerListener.cpp.o: ../include/IOListener.h
 CMakeFiles/Boost_Echo_Client.dir/src/ServerListener.cpp.o: ../include/MessagingProtocol.h
 CMakeFiles/Boost_Echo_Client.dir/src/ServerListener.cpp.o: ../include/ServerListener.h
 CMakeFiles/Boost_Echo_Client.dir/src/ServerListener.cpp.o: ../include/StompFrame.h
