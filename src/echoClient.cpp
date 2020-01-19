@@ -87,7 +87,7 @@ int main (int argc, char *argv[]) {
         delete frame;
 
         MessagingProtocol *protocol = new MessagingProtocol(connectionHandler);
-
+        protocol->setUserDatabase(user);
         IOListener iOListener(connectionHandler, user, protocol);
         ServerListener serverListener(user, connectionHandler, protocol);
         std::thread th1(std::ref(iOListener));

@@ -8,6 +8,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include "Book.h"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ private:
     bool isActive;
     bool returnAnswer;
     unordered_map<string,string> receiptAndActions;
+    vector<Book> books;
 
 public:
     UserDatabase();
@@ -28,7 +30,10 @@ public:
     unordered_map<string,vector<string>>& getBooksPerTopic();
     unordered_map<string,string>& getOwnersPerBook();
     vector<string>& getWishList();
+    bool isInWishL(string name);
+    void removeFromWishL(string name);
     string getOwners(string book);
+    void addToWishList(string name);
     string getName();
     void connect();
     void disconnect();
@@ -40,8 +45,12 @@ public:
     string getActionByReceipt(string rId);
     void setActionForReceipt(int receiptId, string action);
     bool checkBook(string topic, string bookName);
-    void add(string topic, string bookName);
+    void add(string topic, string bookName, string prevOwner);
     void setName(string _userName);
+    void removeBookAvil(string name);
+    void returnBook(string name);
+    void removeBook(string name);
+    string getPrevOwner(string name);
 };
 
 

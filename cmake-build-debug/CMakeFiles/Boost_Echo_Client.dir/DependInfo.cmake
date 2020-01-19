@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/Book.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/Book.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ConnectionHandler.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/ConnectionHandler.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/IOListener.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/IOListener.cpp.o"
   "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/MessagingProtocol.cpp" "/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/cmake-build-debug/CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o"

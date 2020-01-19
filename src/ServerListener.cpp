@@ -37,11 +37,11 @@ ServerListener::ServerListener(UserDatabase* _user, ConnectionHandler& _handler,
 void ServerListener::operator()() {
     while(!isTerminated) {
         string answer = "";
-        cout<< "Got a message" <<endl;
         handler.getLine(answer);
-        cout<<"dsa"<<endl;
-        cout<< answer + "sd" << endl;
+        cout<< "New message: " + answer << endl;
         StompFrame* frame = new StompFrame(answer);
         protocol->process(frame);
+        if(user->getActionByReceipt(frame->getHeader("receipt-id")) == "Disconnect")
+            isTerminated = true;
     }
 }

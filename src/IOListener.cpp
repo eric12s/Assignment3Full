@@ -57,7 +57,6 @@ void IOListener::operator()() {
         }*/
 
     while (user->isConnected()) {
-        cout<<"IOListener is working"<<endl;
         string line;
         string command;
         getline(cin, line);
@@ -100,19 +99,24 @@ void IOListener::operator()() {
             string bookName;
             getline(iss, genre, ' ');
             getline(iss, bookName, ' ');
+            user->add(genre, bookName, "");
+
             frame = new StompFrame(stompClient->add(genre, user->getName(), bookName));
         } else if (command == "borrow") {
             string genre;
             string bookName;
             getline(iss, genre, ' ');
             getline(iss, bookName, ' ');
+            user->addToWishList(bookName);
             frame = new StompFrame(stompClient->borrow(genre, user->getName(), bookName));
         } else if (command == "return") {
             string genre;
             string bookName;
             getline(iss, genre, ' ');
             getline(iss, bookName, ' ');
-            frame = new StompFrame(stompClient->return2(genre, user->getName(), bookName));
+            string owner = user->getPrevOwner(bookName);
+            user->removeBook(bookName);
+            frame = new StompFrame(stompClient->return2(genre, owner, bookName));
         } else if (command == "status") {
             string genre;
             getline(iss, genre, ' ');

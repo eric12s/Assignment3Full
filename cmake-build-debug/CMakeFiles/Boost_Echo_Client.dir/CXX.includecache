@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+../include/Book.h
+string
+-
+
 ../include/ConnectionHandler.h
 string
 -
@@ -13,16 +17,6 @@ iostream
 -
 boost/asio.hpp
 -
-
-../include/IOListener.h
-ConnectionHandler.h
-../include/ConnectionHandler.h
-StompFrame.h
-../include/StompFrame.h
-UserDatabase.h
-../include/UserDatabase.h
-MessagingProtocol.h
-../include/MessagingProtocol.h
 
 ../include/MessagingProtocol.h
 UserDatabase.h
@@ -48,12 +42,6 @@ string
 unordered_map
 -
 
-../include/StompTranslator.h
-string
--
-iostream
--
-
 ../include/UserDatabase.h
 string
 -
@@ -61,24 +49,14 @@ unordered_map
 -
 vector
 -
+Book.h
+../include/Book.h
 
-/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/echoClient.cpp
-stdlib.h
--
+/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ServerListener.cpp
 ConnectionHandler.h
 -
-thread
--
-IOListener.h
--
-iostream
--
-mutex
+boost/thread.hpp
 -
 ServerListener.h
--
-boost/lexical_cast.hpp
--
-StompTranslator.h
--
+/users/studs/bsc/2020/nirvash/Downloads/assignment3/Boost_Echo_Client/src/ServerListener.h
 

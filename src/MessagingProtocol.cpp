@@ -15,10 +15,8 @@ void MessagingProtocol:: setUserDatabase (UserDatabase * _userDatabase){
 
 void MessagingProtocol:: process(StompFrame *stompFrame) {
     if (stompFrame->getCommand() == "CONNECTED") {
-        cout << "Login successful" << endl;
         userDatabase->setConnectAnswer(true);
         userDatabase->connect();
-        userDatabase->setName(stompFrame->getHeader("login"));
     } else if (stompFrame->getCommand() == "ERROR") {
         userDatabase->disconnect();
         connectionHandler.close();
@@ -58,7 +56,7 @@ void MessagingProtocol:: process(StompFrame *stompFrame) {
             if(head.first.find("destination")!= std::string::npos)
                 genre = head.first.substr(head.first.find(':') + 1);
         }*/
-        if(stompFrame->getBody() == "wish to borrow"){
+        if(body.find("wish to borrow") != string::npos){
             int index= body.find("borrow");
             string temp = body.substr(index);
             int index2 = body.find(" ");
@@ -69,20 +67,60 @@ void MessagingProtocol:: process(StompFrame *stompFrame) {
                 pair<string,string> *p = new pair<string,string>(s,genre);
                 addBook.setCommand("SEND");
                 addBook.addHeader(*p);
-                addBook.setBody(userDatabase->getName() + "has" + book);
+                addBook.setBody(userDatabase->getName() + "has " + book);
                 string output = addBook.toString();
                 connectionHandler.sendFrameAscii(output, '\0');
             }
          }
-        if (body == "has added the book") {
-            string s = userDatabase->getName();
-            if (body.substr(0, body.find(' ')) == s) {
-                string temp = body.substr(body.find("book"));
-                string book = temp.substr(body.find(" ")+1);
-                userDatabase->add(genre, book);
+
+        if (body.find("has") != string::npos && body.find("added") == string::npos) {
+            string owner = body.substr(0, body.find(' '));
+            body = body.substr(body.find(' ') + 1);
+            string book = body.substr(body.find(' ') + 1);
+            if(userDatabase->isInWishL(book)){
+                userDatabase->removeFromWishL(book);
+                string destination = stompFrame->getHeader("destination");
+                userDatabase->add(destination, book, owner);
+
+                //send message to announce that he takes the book
+                StompFrame addBook;
+                addBook.setCommand("SEND");
+                addBook.addHeader(make_pair("destination:",destination));
+                addBook.setBody("Taking " + book + " from " + owner);
+                string output = addBook.toString();
+                connectionHandler.sendLine(output);
             }
-            cout << stompFrame->getBody() << endl;
         }
 
+        if (body.find("Taking") != string::npos) {
+            body = body.substr(body.find(' ') + 1);
+            string book = body.substr(0, body.find(' '));
+            string name = body.substr(body.find(' ') + 1);
+
+            if(name == userDatabase->getName()){
+                userDatabase->removeBookAvil(name);
+            }
+        }
+
+//        if (body.find("has added the book") != string::npos) {
+//            string s = userDatabase->getName();
+//            if (body.substr(0, body.find(' ')) == s) {
+//                string temp = body.substr(body.find("book"));
+//                string book = temp.substr(body.find(" ")+1);
+//                userDatabase->add(genre, book, "");
+//            }
+//            cout << stompFrame->getBody() << endl;
+//        }
+
+        if (body.find("Returning") != string::npos) {
+            body = body.substr(body.find(' ') + 1);
+            string book = body.substr(0, body.find(' '));
+            body = body.substr(body.find(' ') + 1);
+            body = body.substr(body.find(' ') + 1);
+            string name = body.substr(0, body.find(' '));
+            if(name == userDatabase->getName()){
+                userDatabase->returnBook(book);
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "Boost_Echo_Client"
   "Boost_Echo_Client.pdb"
+  "CMakeFiles/Boost_Echo_Client.dir/src/Book.cpp.o"
   "CMakeFiles/Boost_Echo_Client.dir/src/ConnectionHandler.cpp.o"
   "CMakeFiles/Boost_Echo_Client.dir/src/IOListener.cpp.o"
   "CMakeFiles/Boost_Echo_Client.dir/src/MessagingProtocol.cpp.o"
