@@ -47,8 +47,8 @@ bool UserDatabase:: checkBook(string topic, string bookName){
 //            temp=true;
 //    }
 //    return temp;
-    for(Book book : books){
-        if(book.getName() == bookName && book.isAvailable1())
+    for(Book* book : books){
+        if(book->getName() == bookName && book->isAvailable1())
             return true;
     }
     return false;
@@ -78,7 +78,7 @@ void UserDatabase:: add(string topic, string book, string preOwner){
     if(preOwner != "")
         book1->setPrevOwner(preOwner);
 
-    books.push_back(*book1);
+    books.push_back(book1);
 }
 
  vector<string>& UserDatabase:: getWishList(){
@@ -107,41 +107,41 @@ void UserDatabase::removeFromWishL(string name) {
 }
 
 void UserDatabase::removeBookAvil(string name){
-    for(Book book : books){
-        if(book.getName() == name)
-            book.setIsAvailable(false);
+    for(Book* book : books){
+        if(book->getName() == name)
+            book->setIsAvailable(false);
     }
 }
 
 void UserDatabase:: returnBook(string name){
-    for(Book book : books){
-        if(book.getName() == name)
-            book.setIsAvailable(true);
+    for(Book* book : books){
+        if(book->getName() == name)
+            book->setIsAvailable(true);
     }
 }
 
 void UserDatabase:: removeBook(string name){
     int counter = 0;
     for (auto& book : books) {
-        if(book.getName() == name)
+        if(book->getName() == name)
             books.erase(books.begin()+counter);
         counter++;
     }
 }
 
 string UserDatabase::getPrevOwner(string name) {
-    for(Book book : books){
-        if(book.getName() == name)
-            return book.getPrevOwner();
+    for(Book* book : books){
+        if(book->getName() == name)
+            return book->getPrevOwner();
     }
     return "";
 }
 
 string UserDatabase::getStatus() {
     string output = "";
-    for(Book book : books){
-        if(book.isAvailable1())
-            output += book.getName() + " ";
+    for(Book* book : books){
+        if(book->isAvailable1())
+            output += book->getName() + " ";
     }
     if(output.length() > 0)
         output = output.substr(0, output.length() - 1);

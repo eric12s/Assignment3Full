@@ -97,10 +97,11 @@ void MessagingProtocol:: process(StompFrame *stompFrame) {
         if (body.find("Taking") != string::npos) {
             body = body.substr(body.find(' ') + 1);
             string book = body.substr(0, body.find(' '));
+            body = body.substr(body.find(' ') + 1);
             string name = body.substr(body.find(' ') + 1);
 
             if(name == userDatabase->getName()){
-                userDatabase->removeBookAvil(name);
+                userDatabase->removeBookAvil(book);
             }
         }
 

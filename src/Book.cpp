@@ -8,26 +8,26 @@
 
 Book::Book(string _name, string _genre):name(_name), genre(_genre), prevOwner(""), isAvailable(true){}
 
-const std::__cxx11::basic_string<char> &Book::getName() const {
+string Book::getName(){
     return name;
 }
 
-const std::__cxx11::basic_string<char> &Book::getGenre() const {
+string Book::getGenre(){
     return genre;
 }
 
-const std::__cxx11::basic_string<char> &Book::getPrevOwner() const {
+string Book::getPrevOwner(){
     return prevOwner;
 }
 
-bool Book::isAvailable1() const {
+bool Book::isAvailable1(){
     return isAvailable;
 }
 
-void Book::setPrevOwner(const string &prevOwner) {
-    Book::prevOwner = prevOwner;
+void Book::setPrevOwner(string prevOwner) {
+    prevOwner = prevOwner;
 }
 
-void Book::setIsAvailable(bool isAvailable) {
-    Book::isAvailable = isAvailable;
+void Book::setIsAvailable(bool _isAvailable) {
+    isAvailable = _isAvailable;
 }

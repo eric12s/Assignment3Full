@@ -20,17 +20,17 @@ private:
 public:
     Book(string name, string genre);
 
-    const string &getName() const;
+    string getName();
 
-    const string &getGenre() const;
+    string getGenre();
 
-    const string &getPrevOwner() const;
+    string getPrevOwner();
 
-    bool isAvailable1() const;
+    bool isAvailable1();
 
-    void setPrevOwner(const string &prevOwner);
+    void setPrevOwner(string prevOwner);
 
-    void setIsAvailable(bool isAvailable);
+    void setIsAvailable(bool _isAvailable);
 };
 
 

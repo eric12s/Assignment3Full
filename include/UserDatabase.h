@@ -21,7 +21,7 @@ private:
     bool isActive;
     bool returnAnswer;
     unordered_map<string,string> receiptAndActions;
-    vector<Book> books;
+    vector<Book*> books;
 
 public:
     UserDatabase();
