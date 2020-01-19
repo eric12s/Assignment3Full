@@ -65,5 +65,3 @@ string StompFrame:: toString(){
     output += getBody() + '\n';
     return output;
 }
-
-

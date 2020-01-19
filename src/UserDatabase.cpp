@@ -136,3 +136,14 @@ string UserDatabase::getPrevOwner(string name) {
     }
     return "";
 }
+
+string UserDatabase::getStatus() {
+    string output = "";
+    for(Book book : books){
+        if(book.isAvailable1())
+            output += book.getName() + " ";
+    }
+    if(output.length() > 0)
+        output = output.substr(0, output.length() - 1);
+    return output;
+}

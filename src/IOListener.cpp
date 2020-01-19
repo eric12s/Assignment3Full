@@ -46,7 +46,6 @@ void IOListener::operator()() {
             if (connectionHandler.connect()) {
                 connectionHandler.sendFrameAscii(frame->toString(), '\0');
                 *//*while(user.connectAnswer()){
-                    //TODO:Busy wait, need to solve this
 
                 }*//*
                 delete frame;
@@ -147,7 +146,7 @@ string IOListener:: translateInput(string input){
         string userName = input.substr(0, input.find(" "));
         input = input.substr(input.find(" ") + 1, string::npos);
         if(input.length() < 1) {
-            return "";//TODO:HOW TO MAKE SURE THE INPUT IS VALID
+            return "";
         }
         string passcode = input;
         translation =+ "CONNECT\naccept-version:1.2\nlogin:" + userName + "\npasscode:"+passcode + "\n\n\n\0";

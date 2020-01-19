@@ -20,6 +20,7 @@ public:
     void startListen();
     bool isTerminated;
     void operator()();
+    bool getError();
 
 
 private:
@@ -29,6 +30,7 @@ private:
     MessagingProtocol* protocol;
     queue<StompFrame> sendQueue;
     //boost::thread t1;
+    bool error;
 };
 
 

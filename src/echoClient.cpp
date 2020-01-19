@@ -30,6 +30,10 @@ int main (int argc, char *argv[]) {
     string portS;
     getline(iss, host, ':');
     getline(iss, portS, ' ');
+    string name;
+    string password;
+    getline(iss, name, ' ');
+    getline(iss, password, ' ');
     short port = -1;
     bool shouldTerminate = (command == "bye");
     try {
@@ -37,8 +41,9 @@ int main (int argc, char *argv[]) {
     }
     catch (boost::bad_lexical_cast &) {
     }
+    bool error = true;
 
-    while(!shouldTerminate) {
+    while (error) {
         try {
             port = boost::lexical_cast<short>(portS);
         }
@@ -46,7 +51,7 @@ int main (int argc, char *argv[]) {
         }
 
         while (host.empty() || port == -1 || command != "login") {
-            if(command != "login")
+            if (command != "login")
                 cout << "You must log in first!" << endl;
             else
                 cout << "Wrong host or port!" << endl;
@@ -57,13 +62,16 @@ int main (int argc, char *argv[]) {
             getline(iss, command, ' ');
             getline(iss, host, ':');
             getline(iss, portS, ' ');
+            string name;
+            string password;
+            getline(iss, name, ' ');
+            getline(iss, password, ' ');
             try {
                 port = boost::lexical_cast<short>(portS);
             }
             catch (boost::bad_lexical_cast &) {
             }
         }
-
 
 
         ConnectionHandler connectionHandler(host, port);
@@ -73,43 +81,56 @@ int main (int argc, char *argv[]) {
             return 1;
         }
 
-        string name;
-        string password;
-        getline(iss, name, ' ');
-        getline(iss, password, ' ');
+
         UserDatabase *user = new UserDatabase(name);
-        user->connect();
         StompTranslator *stompClient = new StompTranslator();
 
         StompFrame *frame = new StompFrame(stompClient->login(name, password));
         connectionHandler.sendFrameAscii(frame->toString(), '\0');
-
+        string answer = "";
+        connectionHandler.getLine(answer);
+        cout << "New message:\n" + answer << endl;
         delete frame;
 
-        IOListener iOListener(connectionHandler, user);
-        MessagingProtocol *protocol = new MessagingProtocol(connectionHandler);
-        protocol->setUserDatabase(user);
-        protocol->setIOListener(&iOListener);
-        ServerListener serverListener(user, connectionHandler, protocol);
-        std::thread th1(std::ref(iOListener));
-        std::thread th2(std::ref(serverListener));
+        if (answer.find("CONNECTED") != string::npos)
+            user->connect();
 
-        th1.join();
-        th2.join();
+        error = false;
 
-        cout<<"Theards are done"<<endl;
+        if (answer.find("ERROR") != string::npos)
+            error = true;
 
-        connectionHandler.close();
-        string line;
-        getline(cin, line);
-        istringstream iss(line);
-        string command;
-        getline(iss, command, ' ');
-        string host;
-        string portS;
-        short port = -1;
-        shouldTerminate = (command == "bye");
+        if (!error) {
+            IOListener iOListener(connectionHandler, user);
+            MessagingProtocol *protocol = new MessagingProtocol(connectionHandler);
+            protocol->setUserDatabase(user);
+            protocol->setIOListener(&iOListener);
+            ServerListener serverListener(user, connectionHandler, protocol);
+            std::thread th1(std::ref(iOListener));
+            std::thread th2(std::ref(serverListener));
+
+            th1.join();
+            th2.join();
+
+            cout << "Theards are done" << endl;
+            connectionHandler.close();
+        } else {
+            connectionHandler.close();
+            string line;
+            getline(cin, line);
+            istringstream iss(line);
+            getline(iss, command, ' ');
+            //shouldTerminate = (command == "bye");
+            host = "";
+            portS = "";
+            getline(iss, host, ':');
+            getline(iss, portS, ' ');
+            port = -1;
+            getline(iss, name, ' ');
+            getline(iss, password, ' ');
+        }
     }
+
 
 	//From here we will see the rest of the ehco client implementation:
    /* while (1) {

@@ -32,16 +32,25 @@ ServerListener::ServerListener(UserDatabase* _user, ConnectionHandler& _handler,
     user = _user;
     isTerminated = false;
     protocol = _protocol;
+    error = false;
 }
 
 void ServerListener::operator()() {
-    while(!isTerminated) {
+    while (!isTerminated) {
         string answer = "";
         handler.getLine(answer);
-        cout<< "New message: " + answer << endl;
-        StompFrame* frame = new StompFrame(answer);
+        cout << "New message:\n" + answer << endl;
+        StompFrame *frame = new StompFrame(answer);
         protocol->process(frame);
-        if(user->getActionByReceipt(frame->getHeader("receipt-id")) == "Disconnect")
+        if (user->getActionByReceipt(frame->getHeader("receipt-id")) == "Disconnect")
             isTerminated = true;
+        if (frame->getCommand() == "ERROR") {
+            error = true;
+            isTerminated = true;
+        }
     }
+}
+
+bool ServerListener::getError() {
+    return error;
 }

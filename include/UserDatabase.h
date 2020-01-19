@@ -51,6 +51,7 @@ public:
     void returnBook(string name);
     void removeBook(string name);
     string getPrevOwner(string name);
+    string getStatus();
 };
 
 
