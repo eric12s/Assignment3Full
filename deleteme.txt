@@ -1,0 +1,10 @@
+ Volume in drive C is OS
+ Volume Serial Number is 8E25-6EF8
+
+ Directory of C:\Users\erics\Desktop\Studies\SPL\Assignment3Full
+
+04/09/2020  10:47 PM    <DIR>          .
+04/09/2020  10:47 PM    <DIR>          ..
+04/09/2020  10:47 PM                 0 deleteme.txt
+               1 File(s)              0 bytes
+               2 Dir(s)  111,896,915,968 bytes free
